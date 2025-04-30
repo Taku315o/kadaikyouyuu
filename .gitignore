@@ -1,0 +1,7 @@
+# macOS固有ファイル
+.DS_Store
+
+# 共通で無視したいファイルやディレクトリ
+node_modules/
+.env
+*.log
