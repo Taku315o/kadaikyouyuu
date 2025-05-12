@@ -69,7 +69,7 @@ export type Database = {
   };
 };
 
-// クライアントサイドでのsupabaseインスタンス作成
+// クライアントサイドでのsupabaseインスタンス作成するための関数
 export const createSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
@@ -79,5 +79,6 @@ export const createSupabaseClient = () => {
 };
 
 // クライアントインスタンス（シングルトン）
+
 const supabase = createSupabaseClient();
 export default supabase;
