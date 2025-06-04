@@ -108,8 +108,8 @@ export default function AssignmentList({ query }: AssignmentListProps) {
               <Image
                 src={assignment.image_url}
                 alt={assignment.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                className="object-cover"
               />
             </div>
           )}
