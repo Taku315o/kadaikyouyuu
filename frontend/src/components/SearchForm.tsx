@@ -1,3 +1,5 @@
+// SearchForm.tsx
+// 課題検索フォームのUIとロジックを定義するコンポーネントファイル
 import { useState, FormEvent } from 'react';
 
 

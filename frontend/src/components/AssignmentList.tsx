@@ -1,3 +1,5 @@
+// AssignmentList.tsx
+// 課題一覧を表示し、検索や削除機能を提供するコンポーネント
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import supabase from '@/lib/supabase';

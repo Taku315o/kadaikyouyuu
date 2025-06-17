@@ -1,3 +1,6 @@
+
+//AuthContext.tsx
+// ユーザー認証状態を管理し、アプリケーション全体で共有するためのContextとProvider
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import supabase from '@/lib/supabase';

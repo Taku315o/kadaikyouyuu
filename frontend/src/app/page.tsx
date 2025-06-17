@@ -1,3 +1,4 @@
+//page.tsx
 'use client'; // クライアントサイドで実行されることを示すNext.jsのディレクティブ
 
 import { useState } from 'react'; // Reactのフック。状態管理に使用
@@ -6,9 +7,7 @@ import { useAuth } from '@/context/AuthContext'; // 認証関連のカスタム�
 import AssignmentList from '@/components/AssignmentList'; // 課題一覧を表示するコンポーネント
 import SearchForm from '@/components/SearchForm'; // 検索フォームを表示するコンポーネント
 
-// HomePageコンポーネントの定義
 export default function HomePage() {
-  // useAuthフックからユーザー情報、ローディング状態、Googleログイン関数、ログアウト関数を取得
   const { user, isLoading, signInWithGoogle, signOut } = useAuth();
   // 検索クエリの状態を管理するためのuseStateフック
   const [searchQuery, setSearchQuery] = useState('');

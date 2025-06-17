@@ -1,3 +1,7 @@
+//AssignmentForm.tsx
+// このコンポーネントは、課題のタイトル、説明、およびオプションの画像をユーザーが入力し、送信するためのフォームを提供します。
+// フォームの送信時に、画像がアップロードされ（存在する場合）、課題データがAPI経由で作成されます。
+// 認証、フォームバリデーション、画像プレビュー、および通知処理も含まれています。
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { uploadImage, createAssignment, setAuthToken } from '@/lib/api';
