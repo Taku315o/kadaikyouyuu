@@ -1,3 +1,5 @@
+"use client";
+
 
 //AuthContext.tsx
 // ユーザー認証状態を管理し、アプリケーション全体で共有するためのContextとProvider
