@@ -6,6 +6,7 @@ import Link from 'next/link'; // Next.jsのコンポーネント。クライア�
 import { useAuth } from '@/context/AuthContext'; // 認証関連のカスタムフック
 import AssignmentList from '@/components/AssignmentList'; // 課題一覧を表示するコンポーネント
 import SearchForm from '@/components/SearchForm'; // 検索フォームを表示するコンポーネント
+import Hero from '@/components/Hero';
 
 export default function HomePage() {
   const { user, isLoading, signInWithGoogle, signOut } = useAuth();
@@ -20,7 +21,7 @@ export default function HomePage() {
   // JSXを返す
   return (
     <div className="container mx-auto px-4 py-8"> {/* 全体を囲むコンテナ */}
-      <header className="flex justify-between items-center mb-10"> {/* ヘッダー */}
+      <header className="flex justify-between items-center mb-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-lg shadow"> {/* ヘッダー */}
         <h1 className="text-2xl font-bold">StudyShare</h1> {/* アプリケーションのタイトル */}
         <div>
           {/* ローディング状態の表示 */}
@@ -58,6 +59,7 @@ export default function HomePage() {
       </header>
 
       <main> {/* メインコンテンツ */}
+        <Hero />
         <div className="mb-10">
           <h2 className="text-xl font-semibold mb-4">課題を検索</h2> {/* 検索セクションのタイトル */}
           <SearchForm onSearch={handleSearch} /> {/* 検索フォームコンポーネント */}

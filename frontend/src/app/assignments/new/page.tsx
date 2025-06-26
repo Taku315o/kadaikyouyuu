@@ -27,11 +27,11 @@ export default function NewAssignmentPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <header className="mb-8">
-        <Link href="/" className="text-blue-500 hover:text-blue-700">
+      <header className="mb-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-lg shadow flex items-center justify-between">
+        <Link href="/" className="hover:underline">
           ← 戻る
         </Link>
-        <h1 className="text-2xl font-bold mt-4">新しい課題を投稿</h1>
+        <h1 className="text-2xl font-bold">新しい課題を投稿</h1>
       </header>
 
       <main>
