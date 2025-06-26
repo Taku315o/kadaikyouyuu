@@ -7,8 +7,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff; /* ダークモードでも白背景に固定 */
   }
 }
 
