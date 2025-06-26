@@ -104,21 +104,21 @@ export default function AssignmentList({ query }: AssignmentListProps) {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {assignments.map((assignment) => (
-        <div key={assignment.id} className="border rounded-lg overflow-hidden shadow-sm">
+        <div key={assignment.id} className="border rounded-lg overflow-hidden shadow-sm bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow group">
           {assignment.image_url && (
             <div className="w-full h-48 overflow-hidden relative">
               <Image
                 src={assignment.image_url}
                 alt={assignment.title}
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform"
               />
             </div>
           )}
           <div className="p-4">
             <h3 className="text-xl font-semibold">{assignment.title}</h3>
-            <p className="text-gray-600 mt-2">{assignment.description}</p>
-            <div className="flex justify-between items-center mt-4 text-sm text-gray-500">
+            <p className="text-gray-600 dark:text-gray-300 mt-2">{assignment.description}</p>
+            <div className="flex justify-between items-center mt-4 text-sm text-gray-500 dark:text-gray-400">
               <span>投稿者: {assignment.user?.email || '不明'}</span>
               <span>{new Date(assignment.created_at).toLocaleString('ja-JP')}</span>
             </div>
@@ -127,7 +127,7 @@ export default function AssignmentList({ query }: AssignmentListProps) {
             {isAdmin && (
               <button
                 onClick={() => handleDelete(assignment.id)}
-                className="mt-3 px-3 py-1 text-sm text-red-600 border border-red-600 rounded hover:bg-red-50"
+                className="mt-3 px-3 py-1 text-sm text-red-600 border border-red-600 rounded hover:bg-red-50 dark:hover:bg-red-900"
               >
                 削除
               </button>
