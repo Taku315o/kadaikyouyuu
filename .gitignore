@@ -1,6 +1,6 @@
 # macOS固有ファイル
 .DS_Store
-
+gemini.md
 # 共通で無視したいファイルやディレクトリ
 node_modules/
 .env
