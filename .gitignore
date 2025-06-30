@@ -1,7 +1,28 @@
 # macOS固有ファイル
 .DS_Store
+
+# AI関連ファイル
 gemini.md
+
 # 共通で無視したいファイルやディレクトリ
 node_modules/
 .env
+.env.*
 *.log
+
+# パッケージマネージャー
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDEやエディタ設定
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS固有ファイル
+Thumbs.db
+*.tmp
+*.temp
