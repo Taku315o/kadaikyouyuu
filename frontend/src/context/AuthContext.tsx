@@ -37,23 +37,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // セッション初期化
   useEffect(() => {
     const fetchSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setSession(session);
-      setUser(session?.user ?? null);
-      
-      if (session?.user) {
-        const { data: profileData } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
         
-        if (profileData) {
-          setProfile(profileData);
+        if (error) {
+          console.error('セッション取得エラー:', error);
         }
+        
+        setSession(session);
+        setUser(session?.user ?? null);
+        
+        if (session?.user) {
+          const { data: profileData } = await supabase
+            .from('users')
+            .select('*')
+            .eq('id', session.user.id)
+            .single();
+          
+          if (profileData) {
+            setProfile(profileData);
+          }
+        }
+      } catch (error) {
+        console.error('セッション初期化エラー:', error);
+      } finally {
+        setIsLoading(false);
       }
-      
-      setIsLoading(false);
     };
 
     fetchSession();
@@ -61,6 +70,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // 認証状態の変更を監視
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        console.log('認証状態変更:', event, session?.user?.id);
+        
         setSession(session);
         setUser(session?.user ?? null);
         

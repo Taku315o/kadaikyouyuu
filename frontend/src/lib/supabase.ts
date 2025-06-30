@@ -75,7 +75,13 @@ export const createSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
-  const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+  const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: true, // セッションをlocalStorageに永続化
+      autoRefreshToken: true, // トークンの自動更新
+      detectSessionInUrl: true, // URLからセッション情報を検出
+    },
+  });
   return supabase;
 };
 

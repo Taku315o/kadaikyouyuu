@@ -15,12 +15,24 @@ export async function GET(request: NextRequest) {
     
     if (code) {
       const supabase = createSupabaseClient();
-      await supabase.auth.exchangeCodeForSession(code);
+      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+      
+      if (error) {
+        console.error('セッション交換エラー:', error);
+        redirectUrl.searchParams.set('error', 'auth_error');
+        return NextResponse.redirect(redirectUrl);
+      }
+
+      // セッションが正常に設定されたことを確認
+      if (data.session) {
+        console.log('セッション正常に設定されました:', data.session.user.id);
+      }
     }
     
     return NextResponse.redirect(redirectUrl);
   } catch (error) {
     console.error('認証コールバックエラー:', error);
+    redirectUrl.searchParams.set('error', 'callback_error');
     return NextResponse.redirect(redirectUrl);
   }
 }
