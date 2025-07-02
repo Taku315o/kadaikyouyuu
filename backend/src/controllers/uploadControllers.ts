@@ -1,3 +1,6 @@
+// File: studyshare/backend/src/controllers/uploadControllers.ts
+// This file handles the upload logic for images to Supabase Storage.
+//this file calls the uploadService to handle the actual upload process
 import { Request, Response } from 'express';
 import { uploadToStorage, isValidImageType, isValidFileSize } from '../services/uploadService';
 

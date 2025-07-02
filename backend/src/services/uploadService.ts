@@ -1,3 +1,6 @@
+
+//uploadController.ts
+// This file handles the upload logic for images to Supabase Storage.
 import { v4 as uuidv4 } from 'uuid';
 import multer from 'multer';
 import supabase from '../lib/supabase';
