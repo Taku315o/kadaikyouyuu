@@ -1,7 +1,8 @@
 // studyshare/frontend/src/components/SearchForm.tsx
 // 課題検索フォームのUIとロジックを定義するコンポーネントファイル
 import { useState, FormEvent } from 'react';
-//seaechformで入力された文字(query)が、onsearchとしてpropsとして、親コンポーネントである、page.tsxに渡されて、 <SearchForm onSearch={handleSearch} /> の処理で、handlesearchが実行されて、クエリを更新していく
+//SearchFormで入力された文字(query)が、onSearch関数の引数として親コンポーネント(page.tsx)に渡される。
+//onSearchは親から子へpropsとして渡された関数で、実行されるとhandleSearchが動作してクエリを更新する
 //onSearchっていうpropsを渡してくれって要求してる
 type SearchFormProps = {
   onSearch: (query: string) => void;
