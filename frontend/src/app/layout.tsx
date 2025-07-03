@@ -1,4 +1,5 @@
 //layout.tsx
+//app routerにおけるアプリ全体のレイアウトを定義するファイル
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';

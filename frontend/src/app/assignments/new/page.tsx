@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import AssignmentForm from '@/components/AssignmentForm';
-
+//app/assignments/new/page.tsx に置いてあるこの関数は、URL /assignments/new にアクセスしたときに表示されるページ
 export default function NewAssignmentPage() {
   const { user, isLoading } = useAuth();
   const router = useRouter();

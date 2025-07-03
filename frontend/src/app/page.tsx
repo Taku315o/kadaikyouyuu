@@ -62,7 +62,8 @@ export default function HomePage() {
         <Hero />
         <div className="mb-10">
           <h2 className="text-xl font-semibold mb-4">課題を検索</h2> {/* 検索セクションのタイトル */}
-          <SearchForm onSearch={handleSearch} /> {/* 検索フォームコンポーネント */}
+          {/* SearchForm に onSearch って名前で関数を渡してる */}
+          <SearchForm onSearch={handleSearch} /> 
         </div>
 
         <div>

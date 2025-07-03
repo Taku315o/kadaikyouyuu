@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase';
-
+//Supabaseが返してきたcodeを使ってセッションを作成
+//codeなどのクエリを取り除いたうえでトップページにリダイレクト
 // Supabase認証コールバック処理
 export async function GET(request: NextRequest) {
   const redirectUrl = request.nextUrl.clone();

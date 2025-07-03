@@ -1,4 +1,6 @@
-//api.ts
+//studyshare/frontend/src/lib/api.ts
+// This file contains the API client setup and various API functions for the StudyShare application.
+// It uses Axios for HTTP requests and includes functions for authentication, image upload, and assignment management
 import axios from 'axios';
 
 const api = axios.create({

@@ -1,8 +1,8 @@
-// SearchForm.tsx
+// studyshare/frontend/src/components/SearchForm.tsx
 // 課題検索フォームのUIとロジックを定義するコンポーネントファイル
 import { useState, FormEvent } from 'react';
-
-
+//seaechformで入力された文字(query)が、onsearchとしてpropsとして、親コンポーネントである、page.tsxに渡されて、 <SearchForm onSearch={handleSearch} /> の処理で、handlesearchが実行されて、クエリを更新していく
+//onSearchっていうpropsを渡してくれって要求してる
 type SearchFormProps = {
   onSearch: (query: string) => void;
 };
@@ -10,7 +10,7 @@ type SearchFormProps = {
 // 課題検索フォームコンポーネント
 export default function SearchForm({ onSearch }: SearchFormProps) {
   const [query, setQuery] = useState('');
-
+//
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     onSearch(query.trim());
