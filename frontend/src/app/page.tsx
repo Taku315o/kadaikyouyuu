@@ -14,6 +14,8 @@ export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   // 検索処理を行う関数
+  //onSearchとして、この関数をSearchFormコンポーネントに渡して、queryを受け取る。searchformではqueryの更新をしている。
+  //で、その後、親に渡されたqueryがassignmentに渡されて、検索結果を表示する
   const handleSearch = (query: string) => {
     setSearchQuery(query); // 検索クエリを更新
   };

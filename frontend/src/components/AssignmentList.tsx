@@ -28,7 +28,12 @@ export default function AssignmentList({ query }: AssignmentListProps) {
   const [loading, setLoading] = useState(true);
   const { isAdmin, getAccessToken } = useAuth();
 
-  // 課題一覧を取得
+  // 課題一覧を取得する関数
+  // useCallbackを使ってるのは、useEffectの無限ループを防ぐため！
+  // 普通の関数だと再レンダリングのたびに新しい関数が作られちゃって、
+  // useEffectが「あ、fetchAssignmentsが変わった！」って勘違いして
+  // また実行 → 状態更新 → 再レンダリング → また実行... の無限ループになっちゃう
+  // queryが変わった時だけ関数を作り直すようにしてるよ
   const fetchAssignments = useCallback(async () => {
     setLoading(true);
     try {
@@ -85,6 +90,8 @@ export default function AssignmentList({ query }: AssignmentListProps) {
   };
 
   // クエリが変わったらデータを再取得
+  // ここでfetchAssignmentsを依存配列に入れてるから、上でuseCallbackが必要なんだよね
+  // fetchAssignmentsがuseCallbackじゃないと、無限ループの原因になっちゃう
   useEffect(() => {
     fetchAssignments();
   }, [query, fetchAssignments]);
