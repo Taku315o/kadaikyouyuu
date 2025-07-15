@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
-
+//トップページの上部に表示される、アプリケーションの概要を説明するためのヒーロー（メインビジュアル）コンポーネントです。
 export default function Hero() {
   const { user, signInWithGoogle } = useAuth();
   return (

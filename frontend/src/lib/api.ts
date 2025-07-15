@@ -2,7 +2,8 @@
 // This file contains the API client setup and various API functions for the StudyShare application.
 // It uses Axios for HTTP requests and includes functions for authentication, image upload, and assignment management
 import axios from 'axios';
-
+//バックエンドのExpressサーバーと通信するためのAPIクライアントです。
+// axiosライブラリを使い、画像アップロード、課題の投稿・検索・削除といった各APIリクエストを行う関数を定義しています。
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:3001/api',
 });

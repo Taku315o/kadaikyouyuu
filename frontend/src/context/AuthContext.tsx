@@ -3,6 +3,8 @@
 
 //AuthContext.tsx
 // ユーザー認証状態を管理し、アプリケーション全体で共有するためのContextとProvider
+//ユーザーの認証状態（ログインしているか、ユーザー情報など）を管理し、アプリケーション内のどのコンポーネントからでも利用できるように提供（Provide）します。
+// Googleログインやログアウトの関数もここで定義されています。
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import supabase from '@/lib/supabase';
