@@ -1,5 +1,7 @@
 //layout.tsx
 //app routerにおけるアプリ全体のレイアウトを定義するファイル
+//AuthProviderで全体を囲むことで、どのページでも認証情報にアクセスできるようにしている。
+// また、Toasterコンポーネントを配置し、通知機能を有効にしています。
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';

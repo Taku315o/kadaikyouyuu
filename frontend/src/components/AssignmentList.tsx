@@ -1,5 +1,8 @@
 // studyshare/frontend/src/components/AssignmentList.tsx
 // 課題一覧を表示し、検索や削除機能を提供するコンポーネント
+//課題の一覧を表示するコンポーネント。
+// 検索クエリ（query）が渡された場合は、その条件でSupabaseのDB関数を呼び出して検索結果を表示し、クエリがない場合は最近の課題を一覧表示。
+// 管理者（admin）権限を持つユーザーには削除ボタンが表示されます。
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import supabase from '@/lib/supabase';

@@ -1,6 +1,6 @@
 //page.tsx
 'use client'; // クライアントサイドで実行されることを示すNext.jsのディレクティブ
-
+//アプリケーションのトップページ（/）のコンポーネント。ヘッダー、ヒーローセクション、検索フォーム(SearchForm)、課題一覧(AssignmentList)を表示
 import { useState } from 'react'; // Reactのフック。状態管理に使用
 import Link from 'next/link'; // Next.jsのコンポーネント。クライアントサイドでのページ遷移に使用
 import { useAuth } from '@/context/AuthContext'; // 認証関連のカスタムフック

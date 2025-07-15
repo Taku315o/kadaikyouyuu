@@ -1,3 +1,7 @@
+//Supabaseを使ったGoogle OAuth認証後、リダイレクトされるコールバック処理を行うAPIルート。
+// URLに含まれる認証コードをSupabaseに送り、ユーザーセッション（ログイン状態）を確立します。処理完了後、ユーザーをトップページにリダイレクトさせます。
+
+
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase';
 //Supabaseが返してきたcodeを使ってセッションを作成

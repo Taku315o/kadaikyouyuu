@@ -1,5 +1,7 @@
 'use client';
-
+//新しい課題を投稿するためのページ
+//useAuthフックでユーザーがログインしているかを確認し、ログインしていなければトップページにリダイレクトする。
+// ログインしている場合は、課題投稿用のAssignmentFormコンポーネントを表示。
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
