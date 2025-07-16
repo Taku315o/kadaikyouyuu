@@ -1,5 +1,7 @@
 //assignmentController.ts
 // This file contains the controller logic for handling assignment-related requests.
+//課題に関するリクエスト（作成、検索、削除）を処理するコントローラー。
+// リクエストから必要なデータを取り出し、assignmentServiceの関数を呼び出して実際の処理を依頼する。
 import { Request, Response } from 'express';
 import { createAssignment, searchAssignments, deleteAssignment } from '../services/assignmentService';
 
