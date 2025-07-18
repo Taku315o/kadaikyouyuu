@@ -1,6 +1,9 @@
 
 //uploadController.ts
-// This file handles the upload logic for images to Supabase Storage.
+// Supabase Storageへのファイルアップロードに関するロジックを実装している。
+// uuidv4でユニークなファイル名を生成し、ファイルをストレージにアップロード後、公開URLを返却する。
+
+
 import { v4 as uuidv4 } from 'uuid';
 import multer from 'multer';
 import supabase from '../lib/supabase';
