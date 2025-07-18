@@ -20,7 +20,8 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
     const authHeader = req.headers.authorization;
     
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: '認証トークンが必要です' });
+      res.status(401).json({ error: '認証トークンが必要です' });
+      return;
     }
     
     const token = authHeader.split(' ')[1];
@@ -29,7 +30,8 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
     const { data: { user }, error } = await supabase.auth.getUser(token);
     
     if (error || !user) {
-      return res.status(401).json({ error: '無効なトークンです' });
+      res.status(401).json({ error: '無効なトークンです' });
+      return;
     }
     
     // ユーザー情報を取得
@@ -40,7 +42,8 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
       .single();
     
     if (!userData) {
-      return res.status(404).json({ error: 'ユーザーが見つかりません' });
+      res.status(404).json({ error: 'ユーザーが見つかりません' });
+      return;
     }
     
     // リクエストにユーザー情報をセット
@@ -60,11 +63,13 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
 // 管理者権限チェック
 export const requireAdmin = (req: Request, res: Response, next: NextFunction) => {
   if (!req.user) {
-    return res.status(401).json({ error: '認証が必要です' });
+    res.status(401).json({ error: '認証が必要です' });
+    return;
   }
   
   if (req.user.role !== 'admin') {
-    return res.status(403).json({ error: '管理者権限が必要です' });
+    res.status(403).json({ error: '管理者権限が必要です' });
+    return;
   }
   
   next();

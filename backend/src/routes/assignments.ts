@@ -3,7 +3,7 @@
 import { Router } from 'express';
 import multer from 'multer';
 import supabase from '../lib/supabase';
-import { authMiddleware, adminMiddleware } from '../middleware/auth'; // 作成したミドルウェア
+import { authenticate, requireAdmin } from '../middleware/auth'; // 作成したミドルウェア
 
 const router = Router();
 
@@ -30,9 +30,10 @@ router.get('/assignments/search', async (req, res) => {
  * 画像アップロード API
  * POST /api/upload
  */
-router.post('/upload', authMiddleware, upload.single('image'), async (req, res) => {
+router.post('/upload', authenticate, upload.single('image'), async (req, res) => {
   if (!req.file) {
-    return res.status(400).json({ message: '画像ファイルがありません。' });
+    res.status(400).json({ message: '画像ファイルがありません。' });
+    return;
   }
 
   // @ts-ignore
@@ -63,13 +64,14 @@ router.post('/upload', authMiddleware, upload.single('image'), async (req, res) 
  * 課題投稿 API
  * POST /api/assignments
  */
-router.post('/assignments', authMiddleware, async (req, res) => {
+router.post('/assignments', authenticate, async (req, res) => {
   const { title, description, image_url } = req.body;
   // @ts-ignore
   const userId = req.user.id;
 
   if (!title || !description) {
-    return res.status(400).json({ message: 'タイトルと説明は必須です。' });
+    res.status(400).json({ message: 'タイトルと説明は必須です。' });
+    return;
   }
 
   try {
@@ -90,7 +92,7 @@ router.post('/assignments', authMiddleware, async (req, res) => {
  * 課題削除 API (管理者用)
  * DELETE /api/assignments/:id
  */
-router.delete('/assignments/:id', authMiddleware, adminMiddleware, async (req, res) => {
+router.delete('/assignments/:id', authenticate, requireAdmin, async (req, res) => {
   const { id } = req.params;
 
   try {
